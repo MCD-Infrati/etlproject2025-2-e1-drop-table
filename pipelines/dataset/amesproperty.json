@@ -16,7 +16,6 @@
 			"columnDelimiter": ";",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
-			"nullValue": "VACIO",
 			"quoteChar": "\""
 		},
 		"schema": []
