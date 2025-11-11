@@ -1,0 +1,13 @@
+{
+	"name": "ClientesPostgreSQL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzurePostgreSql",
+		"version": "1.0",
+		"typeProperties": {
+			"connectionString": "host=ep-super-fire-a8k4kvnt-pooler.eastus2.azure.neon.tech;port=5432;database=neondb;uid=user_practica_etl1;encryptionmethod=1;validateservercertificate=0",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDhCRUEyNUQ3LUI5QjAtNDhDMC04RjE2LTAwQUZGMzc0NUY4OF8yYjRkMmYxYi01NTVmLTRiODUtYWJmMS0yYWU2MzE0MDk4OTkiDQp9"
+		}
+	}
+}

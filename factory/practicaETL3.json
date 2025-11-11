@@ -1,0 +1,9 @@
+{
+	"name": "practicaETL3",
+	"location": "chilecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "248442b0-d817-4778-ad8c-fd28538dadf2",
+		"tenantId": "e994072b-523e-4bfe-86e2-442c5e10b244"
+	}
+}
