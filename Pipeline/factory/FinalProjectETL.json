@@ -1,9 +1,0 @@
-{
-	"name": "FinalProjectETL",
-	"location": "eastus",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "c1ed5bcb-c2b4-4300-8ca0-6cb7daec3f7a",
-		"tenantId": "09dd2e65-d6de-461b-b71e-a7b9bfcbafe8"
-	}
-}
