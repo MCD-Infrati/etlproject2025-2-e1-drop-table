@@ -14,7 +14,10 @@
 		"type": "MongoDbAtlasCollection",
 		"schema": [],
 		"typeProperties": {
-			"collection": "@dataset().pCollection"
+			"collection": {
+				"value": "@dataset().pCollection",
+				"type": "Expression"
+			}
 		}
 	}
 }
