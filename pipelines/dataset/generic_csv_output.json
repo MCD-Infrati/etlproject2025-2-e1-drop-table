@@ -1,0 +1,37 @@
+{
+	"name": "generic_csv_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeFinal",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataMongo",
+				"pFile": "garage.csv"
+			}
+		},
+		"parameters": {
+			"pFolder": {
+				"type": "string"
+			},
+			"pFile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@dataset().pFile",
+				"folderPath": "DataMongo",
+				"fileSystem": "indata"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": null,
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
