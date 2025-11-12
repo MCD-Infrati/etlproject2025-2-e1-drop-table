@@ -1,0 +1,9 @@
+{
+	"name": "Proyecto-TI-2025-2",
+	"location": "mexicocentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "75c919b4-ed5c-43e4-982c-f4d92986b31d",
+		"tenantId": "e994072b-523e-4bfe-86e2-442c5e10b244"
+	}
+}
