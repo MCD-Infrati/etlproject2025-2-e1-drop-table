@@ -13,10 +13,57 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "@{'garage'}"
+					},
+					{
+						"name": "Destination",
+						"value": "indata/DataMongo/"
+					}
+				],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "MongoDbAtlasSource",
+						"batchSize": 100
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "generic_mongo_extract",
+						"type": "DatasetReference",
+						"parameters": {
+							"pCollection": "garage"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "generic_csv_output",
+						"type": "DatasetReference",
+						"parameters": {
+							"pFolder": "DataMongo",
+							"pFile": "garage"
+						}
+					}
+				]
 			}
 		],
 		"annotations": []
