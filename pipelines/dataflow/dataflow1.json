@@ -41,7 +41,7 @@
 				"          {Overall Qual} as integer,",
 				"          {Overall Cond} as integer,",
 				"          {Year Built} as integer,",
-				"          {Year Remod/Add} as short",
+				"          {Year Remod/Add} as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
