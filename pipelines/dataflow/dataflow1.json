@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "ajustenulos"
+				},
+				{
+					"name": "transformacion"
 				}
 			],
 			"scriptLines": [
@@ -44,7 +47,51 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> amespropertycsv",
 				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
-				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage})) ~> ajustenulos"
+				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage}),",
+				"          {Lot Area} = iif(isNull({Lot Area}), 0, {Lot Area}),",
+				"          Street = iif(isNull(Street), 'NA', Street),",
+				"          Alley = iif(isNull(Alley), 'NA', Alley),",
+				"          {Lot Shape} = iif(isNull({Lot Shape}), 'NA', {Lot Shape}),",
+				"          {Land Contour} = iif(isNull({Land Contour}), 'NA', {Land Contour}),",
+				"          Utilities = iif(isNull(Utilities), 'NA', Utilities),",
+				"          {Lot Config} = iif(isNull({Lot Config}), 'NA', {Lot Config}),",
+				"          {Land Slope} = iif(isNull({Land Slope}), 'NA', {Land Slope}),",
+				"          Neighborhood = iif(isNull(Neighborhood), 'NA', Neighborhood),",
+				"          {Condition 1} = iif(isNull({Condition 1}), 'NA', {Condition 1}),",
+				"          {Condition 2} = iif(isNull({Condition 2}), 'NA', {Condition 2}),",
+				"          {Bldg Type} = iif(isNull({Bldg Type}), 'NA', {Bldg Type}),",
+				"          {House Style} = iif(isNull({House Style}), 'NA', {House Style}),",
+				"          {Overall Qual} = iif(isNull({Overall Qual}), 0, {Overall Qual}),",
+				"          {Overall Cond} = iif(isNull({Overall Cond}), 0, {Overall Cond}),",
+				"          {Year Built} = iif(isNull({Year Built}), 0, {Year Built}),",
+				"          {Year Remod/Add} = iif(isNull({Year Remod/Add}), {Year Built}, {Year Remod/Add})) ~> ajustenulos",
+				"ajustenulos derive(Neighborhood = iif(Neighborhood == 'Bloomington Heights', 'Blmngtn',\r",
+				"iif(Neighborhood == 'Bluestem', 'Blueste',\r",
+				"iif(Neighborhood == 'Briardale', 'BrDale',\r",
+				"iif(Neighborhood == 'Brookside', 'BrkSide',\r",
+				"iif(Neighborhood == 'Clear Creek', 'ClearCr',\r",
+				"iif(Neighborhood == 'College Creek', 'CollgCr',\r",
+				"iif(Neighborhood == 'Crawford', 'Crawfor',\r",
+				"iif(Neighborhood == 'Edwards', 'Edwards',\r",
+				"iif(Neighborhood == 'Gilbert', 'Gilbert',\r",
+				"iif(Neighborhood == 'Iowa DOT and Rail Road', 'IDOTRR',\r",
+				"iif(Neighborhood == 'Meadow Village', 'MeadowV',\r",
+				"iif(Neighborhood == 'Mitchell', 'Mitchel',\r",
+				"iif(Neighborhood == 'North Ames', 'Names',\r",
+				"iif(Neighborhood == 'Northridge', 'NoRidge',\r",
+				"iif(Neighborhood == 'Northpark Villa', 'NPkVill',\r",
+				"iif(Neighborhood == 'Northridge Heights', 'NridgHt',\r",
+				"iif(Neighborhood == 'Northwest Ames', 'NWAmes',\r",
+				"iif(Neighborhood == 'Old Town', 'OldTown',\r",
+				"iif(Neighborhood == 'South & West of Iowa State University', 'SWISU',\r",
+				"iif(Neighborhood == 'Sawyer', 'Sawyer',\r",
+				"iif(Neighborhood == 'Sawyer West', 'SawyerW',\r",
+				"iif(Neighborhood == 'Somerset', 'Somerst',\r",
+				"iif(Neighborhood == 'Stone Brook', 'StoneBr',\r",
+				"iif(Neighborhood == 'Timberland', 'Timber',\r",
+				"iif(Neighborhood == 'Veenker', 'Veenker', 'NA'))))))))))))))))))))))))),",
+				"          {Condition 1} = iif({Condition 1} == 'Adjacent to arterial street', 'Artery', iif({Condition 1} == 'Adjacent to feeder street', 'Feedr', iif({Condition 1} == 'Normal', 'Norm', iif({Condition 1} == \"Within 200' of North-South Railroad\", 'RRNn', iif({Condition 1} == 'Adjacent to North-South Railroad', 'RRAn', iif({Condition 1} == 'Near positive off-site feature--park greenbelt etc.', 'PosN', iif({Condition 1} == 'Adjacent to postive off-site feature', 'PosA', iif({Condition 1} == \"Within 200' of East-West Railroad\", 'RRNe', iif({Condition 1} == 'Adjacent to East-West Railroad', 'RRAe', 'NA'))))))))),",
+				"          {Lot Shape} = iif({Lot Shape} == 'Regular', 'Reg', iif({Lot Shape} == 'Slightly irregular', 'IR1', iif({Lot Shape} == 'Moderately Irregular', 'IR2', iif({Lot Shape} == 'Irregular', 'IR3', 'NA'))))) ~> transformacion"
 			]
 		}
 	}
