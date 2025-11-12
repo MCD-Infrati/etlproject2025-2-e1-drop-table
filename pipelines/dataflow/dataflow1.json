@@ -1,0 +1,51 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "amesproperty",
+						"type": "DatasetReference"
+					},
+					"name": "amespropertycsv"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "ajustenulos"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          PID as integer,",
+				"          {Lot Frontage} as integer,",
+				"          {Lot Area} as integer,",
+				"          Street as string,",
+				"          Alley as string,",
+				"          {Lot Shape} as string,",
+				"          {Land Contour} as string,",
+				"          Utilities as string,",
+				"          {Lot Config} as string,",
+				"          {Land Slope} as string,",
+				"          Neighborhood as string,",
+				"          {Condition 1} as string,",
+				"          {Condition 2} as string,",
+				"          {Bldg Type} as string,",
+				"          {House Style} as string,",
+				"          {Overall Qual} as integer,",
+				"          {Overall Cond} as integer,",
+				"          {Year Built} as integer,",
+				"          {Year Remod/Add} as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> amespropertycsv",
+				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
+				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage})) ~> ajustenulos"
+			]
+		}
+	}
+}
