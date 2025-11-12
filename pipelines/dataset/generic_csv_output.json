@@ -3,7 +3,11 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DataLakeFinal",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataMongo",
+				"pFile": "garage.csv"
+			}
 		},
 		"parameters": {
 			"pFolder": {
@@ -22,8 +26,9 @@
 				"fileSystem": "indata"
 			},
 			"columnDelimiter": ",",
+			"compressionCodec": null,
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
