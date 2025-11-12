@@ -38,7 +38,7 @@
 				"          {Condition 2} as string,",
 				"          {Bldg Type} as string,",
 				"          {House Style} as string,",
-				"          {Overall Qual} as short,",
+				"          {Overall Qual} as integer,",
 				"          {Overall Cond} as short,",
 				"          {Year Built} as short,",
 				"          {Year Remod/Add} as short",
