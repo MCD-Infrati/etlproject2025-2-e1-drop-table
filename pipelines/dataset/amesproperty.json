@@ -3,7 +3,11 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DataLakeFinal",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataCSV",
+				"pFile": "amesproperty.csv"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",

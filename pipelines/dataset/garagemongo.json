@@ -1,0 +1,28 @@
+{
+	"name": "garagemongo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeFinal",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataMongo",
+				"pFile": "garage.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "garage.csv",
+				"folderPath": "DataMongo",
+				"fileSystem": "indata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
