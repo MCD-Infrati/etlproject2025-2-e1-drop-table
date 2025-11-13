@@ -10,6 +10,34 @@
 						"type": "DatasetReference"
 					},
 					"name": "amespropertycsv"
+				},
+				{
+					"dataset": {
+						"referenceName": "bsmtmongo",
+						"type": "DatasetReference"
+					},
+					"name": "bsmtmongocsv"
+				},
+				{
+					"dataset": {
+						"referenceName": "garagemongo",
+						"type": "DatasetReference"
+					},
+					"name": "garagemongocsv"
+				},
+				{
+					"dataset": {
+						"referenceName": "miscmongo",
+						"type": "DatasetReference"
+					},
+					"name": "miscmongocsv"
+				},
+				{
+					"dataset": {
+						"referenceName": "poolmongo",
+						"type": "DatasetReference"
+					},
+					"name": "poolmongocsv"
 				}
 			],
 			"sinks": [],
@@ -46,6 +74,37 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> amespropertycsv",
+				"source(output(",
+				"          {Bsmt Qual} as string,",
+				"          {Bsmt Cond} as string,",
+				"          {Bsmt Exposure} as string,",
+				"          {BsmtFin Type 1} as string,",
+				"          {BsmtFin Type 2} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> bsmtmongocsv",
+				"source(output(",
+				"          {Garage Type} as string,",
+				"          {Garage Finish} as string,",
+				"          {Garage Qual} as string,",
+				"          {Garage Cond} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> garagemongocsv",
+				"source(output(",
+				"          {Misc Feature} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> miscmongocsv",
+				"source(output(",
+				"          {Pool QC} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> poolmongocsv",
 				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
 				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage}),",
 				"          {Lot Area} = iif(isNull({Lot Area}), 0, {Lot Area}),",
