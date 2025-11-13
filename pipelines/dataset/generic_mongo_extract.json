@@ -1,0 +1,23 @@
+{
+	"name": "generic_mongo_extract",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MongoConn",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"pCollection": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MongoDbAtlasCollection",
+		"schema": [],
+		"typeProperties": {
+			"collection": {
+				"value": "@dataset().pCollection",
+				"type": "Expression"
+			}
+		}
+	}
+}
