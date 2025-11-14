@@ -1,0 +1,28 @@
+{
+	"name": "poolmongo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeFinal",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataMongo",
+				"pFile": "pool.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "pool.csv",
+				"folderPath": "DataMongo",
+				"fileSystem": "indata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
