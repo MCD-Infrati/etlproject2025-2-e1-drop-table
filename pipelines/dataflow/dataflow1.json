@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "amespropertycsv"
+				},
+				{
+					"dataset": {
+						"referenceName": "bsmtmongo",
+						"type": "DatasetReference"
+					},
+					"name": "bsmt"
 				}
 			],
 			"sinks": [
@@ -50,6 +57,23 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> amespropertycsv",
+				"source(output(",
+				"          {PID_$numberLong} as integer,",
+				"          {Bsmt Qual} as string,",
+				"          {Bsmt Cond} as string,",
+				"          {Bsmt Exposure} as string,",
+				"          {BsmtFin Type 1} as string,",
+				"          {BsmtFin SF 1_$numberLong} as short,",
+				"          {BsmtFin Type 2} as string,",
+				"          {BsmtFin SF 2_$numberLong} as short,",
+				"          {Bsmt Unf SF_$numberLong} as short,",
+				"          {Total Bsmt SF_$numberLong} as short,",
+				"          {Bsmt Full Bath_$numberLong} as short,",
+				"          {Bsmt Half Bath_$numberLong} as boolean",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> bsmt",
 				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
 				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage}),",
 				"          {Lot Area} = iif(isNull({Lot Area}), 0, {Lot Area}),",
