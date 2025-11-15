@@ -1,0 +1,33 @@
+{
+	"name": "miscmongo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeFinal",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "DataMongo",
+				"pFile": "misc.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "misc.csv",
+				"folderPath": "DataMongo",
+				"fileSystem": "indata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Misc Feature",
+				"type": "String"
+			}
+		]
+	}
+}

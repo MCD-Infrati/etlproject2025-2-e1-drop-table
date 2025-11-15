@@ -1,20 +1,12 @@
 {
-	"name": "generic_csv_output",
+	"name": "poolmongo",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DataLakeFinal",
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"pFolder": "DataMongo",
-				"pFile": "garage.csv"
-			}
-		},
-		"parameters": {
-			"pFolder": {
-				"type": "string"
-			},
-			"pFile": {
-				"type": "string"
+				"pFile": "pool.csv"
 			}
 		},
 		"annotations": [],
@@ -22,12 +14,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@dataset().pFile",
+				"fileName": "pool.csv",
 				"folderPath": "DataMongo",
 				"fileSystem": "indata"
 			},
 			"columnDelimiter": ",",
-			"compressionCodec": null,
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
