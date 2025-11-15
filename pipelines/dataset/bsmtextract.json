@@ -11,5 +11,6 @@
 		"typeProperties": {
 			"collection": "bsmt"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
