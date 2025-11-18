@@ -190,90 +190,18 @@
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Qual']"
+									"path": "$['Pool Area']['$numberLong']"
 								},
 								"sink": {
-									"name": "Bsmt Qual"
+									"name": "Pool Area_$numberLong"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Cond']"
+									"path": "$['Pool QC']"
 								},
 								"sink": {
-									"name": "Bsmt Cond"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Exposure']"
-								},
-								"sink": {
-									"name": "Bsmt Exposure"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin Type 1']"
-								},
-								"sink": {
-									"name": "BsmtFin Type 1"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin SF 1']['$numberLong']"
-								},
-								"sink": {
-									"name": "BsmtFin SF 1_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin Type 2']"
-								},
-								"sink": {
-									"name": "BsmtFin Type 2"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin SF 2']['$numberLong']"
-								},
-								"sink": {
-									"name": "BsmtFin SF 2_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Unf SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Unf SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Total Bsmt SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Total Bsmt SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Full Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Full Bath_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Half Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Half Bath_$numberLong"
+									"name": "Pool QC"
 								}
 							}
 						]
@@ -327,6 +255,14 @@
 						"mappings": [
 							{
 								"source": {
+									"path": "$['Order']['$numberLong']"
+								},
+								"sink": {
+									"name": "Order_$numberLong"
+								}
+							},
+							{
+								"source": {
 									"path": "$['PID']['$numberLong']"
 								},
 								"sink": {
@@ -335,90 +271,58 @@
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Qual']"
+									"path": "$['Garage Type']"
 								},
 								"sink": {
-									"name": "Bsmt Qual"
+									"name": "Garage Type"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Cond']"
+									"path": "$['Garage Yr Blt']['$numberLong']"
 								},
 								"sink": {
-									"name": "Bsmt Cond"
+									"name": "Garage Yr Blt_$numberLong"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Exposure']"
+									"path": "$['Garage Finish']"
 								},
 								"sink": {
-									"name": "Bsmt Exposure"
+									"name": "Garage Finish"
 								}
 							},
 							{
 								"source": {
-									"path": "$['BsmtFin Type 1']"
+									"path": "$['Garage Cars']['$numberLong']"
 								},
 								"sink": {
-									"name": "BsmtFin Type 1"
+									"name": "Garage Cars_$numberLong"
 								}
 							},
 							{
 								"source": {
-									"path": "$['BsmtFin SF 1']['$numberLong']"
+									"path": "$['Garage Area']['$numberLong']"
 								},
 								"sink": {
-									"name": "BsmtFin SF 1_$numberLong"
+									"name": "Garage Area_$numberLong"
 								}
 							},
 							{
 								"source": {
-									"path": "$['BsmtFin Type 2']"
+									"path": "$['Garage Qual']"
 								},
 								"sink": {
-									"name": "BsmtFin Type 2"
+									"name": "Garage Qual"
 								}
 							},
 							{
 								"source": {
-									"path": "$['BsmtFin SF 2']['$numberLong']"
+									"path": "$['Garage Cond']"
 								},
 								"sink": {
-									"name": "BsmtFin SF 2_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Unf SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Unf SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Total Bsmt SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Total Bsmt SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Full Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Full Bath_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Half Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Half Bath_$numberLong"
+									"name": "Garage Cond"
 								}
 							}
 						]
@@ -480,90 +384,18 @@
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Qual']"
+									"path": "$['Misc Feature']"
 								},
 								"sink": {
-									"name": "Bsmt Qual"
+									"name": "Misc Feature"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Bsmt Cond']"
+									"path": "$['Misc Val']['$numberLong']"
 								},
 								"sink": {
-									"name": "Bsmt Cond"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Exposure']"
-								},
-								"sink": {
-									"name": "Bsmt Exposure"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin Type 1']"
-								},
-								"sink": {
-									"name": "BsmtFin Type 1"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin SF 1']['$numberLong']"
-								},
-								"sink": {
-									"name": "BsmtFin SF 1_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin Type 2']"
-								},
-								"sink": {
-									"name": "BsmtFin Type 2"
-								}
-							},
-							{
-								"source": {
-									"path": "$['BsmtFin SF 2']['$numberLong']"
-								},
-								"sink": {
-									"name": "BsmtFin SF 2_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Unf SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Unf SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Total Bsmt SF']['$numberLong']"
-								},
-								"sink": {
-									"name": "Total Bsmt SF_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Full Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Full Bath_$numberLong"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Bsmt Half Bath']['$numberLong']"
-								},
-								"sink": {
-									"name": "Bsmt Half Bath_$numberLong"
+									"name": "Misc Val_$numberLong"
 								}
 							}
 						]
