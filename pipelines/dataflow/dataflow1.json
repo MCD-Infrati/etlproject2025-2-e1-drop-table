@@ -16,38 +16,14 @@
 						"referenceName": "bsmtmongo",
 						"type": "DatasetReference"
 					},
-					"name": "bsmtmongocsv"
-				},
-				{
-					"dataset": {
-						"referenceName": "garagemongo",
-						"type": "DatasetReference"
-					},
-					"name": "garagemongocsv"
-				},
-				{
-					"dataset": {
-						"referenceName": "miscmongo",
-						"type": "DatasetReference"
-					},
-					"name": "miscmongocsv"
-				},
-				{
-					"dataset": {
-						"referenceName": "poolmongo",
-						"type": "DatasetReference"
-					},
-					"name": "poolmongocsv"
-				},
-				{
-					"dataset": {
-						"referenceName": "AzurePostgreSqlTable1",
-						"type": "DatasetReference"
-					},
-					"name": "SQLTABLE"
+					"name": "bsmt"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "ajustenulos"
@@ -82,81 +58,22 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> amespropertycsv",
 				"source(output(",
+				"          {PID_$numberLong} as integer,",
 				"          {Bsmt Qual} as string,",
 				"          {Bsmt Cond} as string,",
 				"          {Bsmt Exposure} as string,",
 				"          {BsmtFin Type 1} as string,",
-				"          {BsmtFin Type 2} as string",
+				"          {BsmtFin SF 1_$numberLong} as short,",
+				"          {BsmtFin Type 2} as string,",
+				"          {BsmtFin SF 2_$numberLong} as short,",
+				"          {Bsmt Unf SF_$numberLong} as short,",
+				"          {Total Bsmt SF_$numberLong} as short,",
+				"          {Bsmt Full Bath_$numberLong} as short,",
+				"          {Bsmt Half Bath_$numberLong} as boolean",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> bsmtmongocsv",
-				"source(output(",
-				"          {Garage Type} as string,",
-				"          {Garage Finish} as string,",
-				"          {Garage Qual} as string,",
-				"          {Garage Cond} as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> garagemongocsv",
-				"source(output(",
-				"          {Misc Feature} as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> miscmongocsv",
-				"source(output(",
-				"          {Pool QC} as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> poolmongocsv",
-				"source(output(",
-				"          pid as long,",
-				"          {MS SubClass} as long,",
-				"          {MS Zoning} as string,",
-				"          {Roof Style} as string,",
-				"          {Roof Matl} as string,",
-				"          {Exterior 1st} as string,",
-				"          {Exterior 2nd} as string,",
-				"          {Mas Vnr Type} as string,",
-				"          {Mas Vnr Area} as long,",
-				"          {Exter Qual} as string,",
-				"          {Exter Cond} as string,",
-				"          foundation as string,",
-				"          heating as string,",
-				"          {Central Air} as boolean,",
-				"          electrical as string,",
-				"          {1st Flr SF} as long,",
-				"          {2nd Flr SF} as long,",
-				"          {Low Qual Fin SF} as long,",
-				"          {Kitchen AbvGr} as long,",
-				"          {Heating QC} as string,",
-				"          {Kitchen Qual} as string,",
-				"          {TotRms AbvGrd} as long,",
-				"          functional as string,",
-				"          fireplaces as long,",
-				"          {Fireplace Qu} as string,",
-				"          {Paved Drive} as string,",
-				"          {Wood Deck SF} as long,",
-				"          {Open Porch SF} as long,",
-				"          {Enclosed Porch} as long,",
-				"          {3Ssn Porch} as long,",
-				"          {Screen Porch} as long,",
-				"          fence as string,",
-				"          bedrooms as integer,",
-				"          {Full Bath} as integer,",
-				"          {Half Bath} as integer,",
-				"          {Gr Liv Area} as long,",
-				"          {Yr Sold} as integer,",
-				"          {Mo Sold} as integer",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT\\n                        am.PID,\\n                        am.\"MS SubClass\",\\n                        ms.code AS \"MS Zoning\",\\n                        am.\"Roof Style\",\\n                        am.\"Roof Matl\",\\n                        am.\"Exterior 1st\",\\n                        am.\"Exterior 2nd\",\\n                        am.\"Mas Vnr Type\",\\n                        am.\"Mas Vnr Area\",\\n                        t1.code AS \"Exter Qual\",\\n                        t2.code AS \"Exter Cond\",\\n                        am.Foundation,\\n                        am.Heating,\\n                        am.\"Central Air\",\\n                        am.Electrical,\\n                        am.\"1st Flr SF\",\\n                        am.\"2nd Flr SF\",\\n                        am.\"Low Qual Fin SF\",\\n                        am.\"Kitchen AbvGr\",\\n                        t3.code AS \"Heating QC\",\\n                        t4.code AS \"Kitchen Qual\",\\n                        am.\"TotRms AbvGrd\",\\n                        am.Functional,\\n                        am.Fireplaces,\\n                        am.\"Fireplace Qu\",\\n                        am.\"Paved Drive\",\\n                        am.\"Wood Deck SF\",\\n                        am.\"Open Porch SF\",\\n                        am.\"Enclosed Porch\",\\n                        am.\"3Ssn Porch\",\\n                        am.\"Screen Porch\",\\n                        am.Fence,\\n                        fl.bedrooms,\\n                        fl.\"Full Bath\",\\n                        fl.\"Half Bath\",\\n                        (am.\"1st Flr SF\" + am.\"2nd Flr SF\" +  am.\"Low Qual Fin SF\") AS \"Gr Liv Area\",\\n                        EXTRACT(Year FROM sp.\"Sale Date\") AS \"Yr Sold\",\\n                        EXTRACT(Month FROM sp.\"Sale Date\") AS \"Mo Sold\"\\n                    FROM amesdbtemp am\\n                    INNER JOIN mszoning ms\\n                        ON am.\"MS Zoning\" = ms.id\\n                    INNER JOIN typequality t1\\n                        ON am.\"Exter Qual\" = t1.id\\n                    INNER JOIN typequality t2\\n                        ON am.\"Exter Cond\" = t2.id\\n                    INNER JOIN typequality t3\\n                        ON am.\"Heating QC\" = t3.id\\n                    INNER JOIN typequality t4\\n                        ON am.\"Kitchen Qual\" = t4.id\\n                    INNER JOIN (SELECT\\n                                    PID,\\n                                    SUM(bedrooms) AS bedrooms,\\n                                    SUM(\"Full Bath\") AS \"Full Bath\",\\n                                    SUM(\"Half Bath\") AS \"Half Bath\"\\n                                FROM floordetail\\n                                GROUP BY PID) fl\\n                        ON am.PID = fl.PID\\n                    INNER JOIN saleproperty sp\\n                        ON am.PID = sp.PID',",
-				"     format: 'query') ~> SQLTABLE",
+				"     ignoreNoFilesFound: false) ~> bsmt",
 				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
 				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage}),",
 				"          {Lot Area} = iif(isNull({Lot Area}), 0, {Lot Area}),",
@@ -202,7 +119,14 @@
 				"iif(Neighborhood == 'Timberland', 'Timber',\r",
 				"iif(Neighborhood == 'Veenker', 'Veenker', 'NA'))))))))))))))))))))))))),",
 				"          {Condition 1} = iif({Condition 1} == 'Adjacent to arterial street', 'Artery', iif({Condition 1} == 'Adjacent to feeder street', 'Feedr', iif({Condition 1} == 'Normal', 'Norm', iif({Condition 1} == \"Within 200' of North-South Railroad\", 'RRNn', iif({Condition 1} == 'Adjacent to North-South Railroad', 'RRAn', iif({Condition 1} == 'Near positive off-site feature--park greenbelt etc.', 'PosN', iif({Condition 1} == 'Adjacent to postive off-site feature', 'PosA', iif({Condition 1} == \"Within 200' of East-West Railroad\", 'RRNe', iif({Condition 1} == 'Adjacent to East-West Railroad', 'RRAe', 'NA'))))))))),",
-				"          {Lot Shape} = iif({Lot Shape} == 'Regular', 'Reg', iif({Lot Shape} == 'Slightly irregular', 'IR1', iif({Lot Shape} == 'Moderately Irregular', 'IR2', iif({Lot Shape} == 'Irregular', 'IR3', 'NA'))))) ~> transformacion"
+				"          {Lot Shape} = iif({Lot Shape} == 'Regular', 'Reg', iif({Lot Shape} == 'Slightly irregular', 'IR1', iif({Lot Shape} == 'Moderately Irregular', 'IR2', iif({Lot Shape} == 'Irregular', 'IR3', 'NA'))))) ~> transformacion",
+				"transformacion sink(validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> sink1"
 			]
 		}
 	}
