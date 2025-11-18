@@ -17,13 +17,30 @@
 						"type": "DatasetReference"
 					},
 					"name": "bsmt"
-				}
-			],
-			"sinks": [
+				},
 				{
-					"name": "sink1"
+					"dataset": {
+						"referenceName": "garagemongo",
+						"type": "DatasetReference"
+					},
+					"name": "garage"
+				},
+				{
+					"dataset": {
+						"referenceName": "miscmongo",
+						"type": "DatasetReference"
+					},
+					"name": "misc"
+				},
+				{
+					"dataset": {
+						"referenceName": "poolmongo",
+						"type": "DatasetReference"
+					},
+					"name": "pool"
 				}
 			],
+			"sinks": [],
 			"transformations": [
 				{
 					"name": "ajustenulos"
@@ -74,6 +91,36 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> bsmt",
+				"source(output(",
+				"          {Order_$numberLong} as short,",
+				"          {PID_$numberLong} as integer,",
+				"          {Garage Type} as string,",
+				"          {Garage Yr Blt_$numberLong} as short,",
+				"          {Garage Finish} as string,",
+				"          {Garage Cars_$numberLong} as short,",
+				"          {Garage Area_$numberLong} as short,",
+				"          {Garage Qual} as string,",
+				"          {Garage Cond} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> garage",
+				"source(output(",
+				"          {PID_$numberLong} as integer,",
+				"          {Misc Feature} as string,",
+				"          {Misc Val_$numberLong} as short",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> misc",
+				"source(output(",
+				"          {PID_$numberLong} as integer,",
+				"          {Pool Area_$numberLong} as short,",
+				"          {Pool QC} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> pool",
 				"amespropertycsv derive(PID = iif(isNull(PID), 0, PID),",
 				"          {Lot Frontage} = iif(isNull({Lot Frontage}), 0, {Lot Frontage}),",
 				"          {Lot Area} = iif(isNull({Lot Area}), 0, {Lot Area}),",
@@ -119,14 +166,7 @@
 				"iif(Neighborhood == 'Timberland', 'Timber',\r",
 				"iif(Neighborhood == 'Veenker', 'Veenker', 'NA'))))))))))))))))))))))))),",
 				"          {Condition 1} = iif({Condition 1} == 'Adjacent to arterial street', 'Artery', iif({Condition 1} == 'Adjacent to feeder street', 'Feedr', iif({Condition 1} == 'Normal', 'Norm', iif({Condition 1} == \"Within 200' of North-South Railroad\", 'RRNn', iif({Condition 1} == 'Adjacent to North-South Railroad', 'RRAn', iif({Condition 1} == 'Near positive off-site feature--park greenbelt etc.', 'PosN', iif({Condition 1} == 'Adjacent to postive off-site feature', 'PosA', iif({Condition 1} == \"Within 200' of East-West Railroad\", 'RRNe', iif({Condition 1} == 'Adjacent to East-West Railroad', 'RRAe', 'NA'))))))))),",
-				"          {Lot Shape} = iif({Lot Shape} == 'Regular', 'Reg', iif({Lot Shape} == 'Slightly irregular', 'IR1', iif({Lot Shape} == 'Moderately Irregular', 'IR2', iif({Lot Shape} == 'Irregular', 'IR3', 'NA'))))) ~> transformacion",
-				"transformacion sink(validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     store: 'cache',",
-				"     format: 'inline',",
-				"     output: false,",
-				"     saveOrder: 1) ~> sink1"
+				"          {Lot Shape} = iif({Lot Shape} == 'Regular', 'Reg', iif({Lot Shape} == 'Slightly irregular', 'IR1', iif({Lot Shape} == 'Moderately Irregular', 'IR2', iif({Lot Shape} == 'Irregular', 'IR3', 'NA'))))) ~> transformacion"
 			]
 		}
 	}
