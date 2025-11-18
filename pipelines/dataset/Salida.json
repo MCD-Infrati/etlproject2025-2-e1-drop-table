@@ -1,0 +1,28 @@
+{
+	"name": "Salida",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLakeFinal",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"pFolder": "@OutputData   OutputData    ",
+				"pFile": "@Salida"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Salida.csv",
+				"folderPath": "OutputData",
+				"fileSystem": "indata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
