@@ -5,8 +5,14 @@
 			"referenceName": "DataLakeFinal",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"pFolder": "@OutputData   OutputData    ",
-				"pFile": "@Salida"
+				"pFolder": {
+					"value": "OutputData",
+					"type": "Expression"
+				},
+				"pFile": {
+					"value": "Salida",
+					"type": "Expression"
+				}
 			}
 		},
 		"annotations": [],
