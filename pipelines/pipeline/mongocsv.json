@@ -146,6 +146,265 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "misc",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "MongoDbAtlasSource",
+						"batchSize": 100
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['PID']['$numberLong']"
+								},
+								"sink": {
+									"name": "PID_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Misc Feature']"
+								},
+								"sink": {
+									"name": "Misc Feature"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Misc Val']['$numberLong']"
+								},
+								"sink": {
+									"name": "Misc Val_$numberLong"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "miscentrada",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "miscmongo",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "garage",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "MongoDbAtlasSource",
+						"batchSize": 100
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['PID']['$numberLong']"
+								},
+								"sink": {
+									"name": "PID_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Type']"
+								},
+								"sink": {
+									"name": "Garage Type"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Yr Blt']['$numberLong']"
+								},
+								"sink": {
+									"name": "Garage Yr Blt_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Finish']"
+								},
+								"sink": {
+									"name": "Garage Finish"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Cars']['$numberLong']"
+								},
+								"sink": {
+									"name": "Garage Cars_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Area']['$numberLong']"
+								},
+								"sink": {
+									"name": "Garage Area_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Qual']"
+								},
+								"sink": {
+									"name": "Garage Qual"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Garage Cond']"
+								},
+								"sink": {
+									"name": "Garage Cond"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "garageentrada",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "garagemongo",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "pool",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "MongoDbAtlasSource",
+						"batchSize": 100
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['PID']['$numberLong']"
+								},
+								"sink": {
+									"name": "PID_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Pool Area']['$numberLong']"
+								},
+								"sink": {
+									"name": "Pool Area_$numberLong"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Pool QC']"
+								},
+								"sink": {
+									"name": "Pool QC"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "poolentrada",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "poolmongo",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
