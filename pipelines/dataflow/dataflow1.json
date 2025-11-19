@@ -116,6 +116,9 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "QuitarEspacios"
 				}
 			],
 			"scriptLines": [
@@ -434,7 +437,13 @@
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 derive(each(match(type=='integer'), $$ = iif(isNull($$),0,$$)),",
 				"          each(match(type=='string'), $$ = iif(isNull($$),'NA',$$))) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"derivedColumn1 select(mapColumn(",
+				"          each(match(true()),",
+				"               replace($$,' ','') = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> QuitarEspacios",
+				"QuitarEspacios sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
