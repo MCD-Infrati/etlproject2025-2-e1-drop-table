@@ -1,84 +1,57 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3pYkVW5Y)
 ____________________________________________________________________________________
 
+# PROCESO DE EXTRACCIÓN, TRANSFORMACIÓN Y CARGA
+Este proyecto hace parte del cuso de Infraestructura y Arquitectura de TI de la Maestría en Ciencia de Datos, Universidad Icesi, Cali Colombia. 
 
-# Project Template
-This is the template for the ETL assignment in the IInfrati course at the Data Science Master, Universidad Icesi, Cali Colombia
+### Estado del proyecto: Completado
 
-This template is based on the template proposed by the [Data Science Working Group] (https://github.com/sfbrigade/data-science-wg) Code for the [San Francisco’s Code initiative](https://github.com/sfbrigade/data-science-wg) 
+## Integrantes:
 
-*Instructions: Edit this template filling in the titles, information, and links! Feel free to stray a bit to suit your project but try to provide the main information for reviews and feedback purposes.*
-## Remove this table after updating your project's information
-____________________________________________________________________________________
-
-# Project Name
-This project is a part of the  **Proyecto 1 de Innovación Tecnológica** course in the Applied Artificial Intelligence Master, Universidad Icesi, Cali Colombia. 
-
-#### -- Project Status: [Active, On-Hold, Completed]
-
-## Contributing Members
-
-**Team Leader: [Full Name](https://github.com/[github handle])(@slackHandle)**
-**Instructor: [Full Name](https://github.com/[github handle])(@slackHandle)**
-
-#### Other Members:
-
-|Name     |  Email   | 
-|---------|-----------------|
-|[Full Name](https://github.com/[github handle])| @johnDoe        |
-|[Full Name](https://github.com/[github handle]) |     @janeDoe    |
-
-## Contact
-* Feel free to contact the team leader or the instructor with any questions or if you are interested in contributing!
+|Nombre     |  Código   |   Github   |
+|---------|-----------------|------------------|
+|Davinson Alexander Arteaga Bermudez | A00419669  | https://github.com/DavinsonA |
+|Daniela Castaño Medina | A00400872  | https://github.com/danielacmedina |
+|Gian Alepsi Mendoza Oviedo | A00419307  | https://github.com/gianmendozax |
+|Juan Jose Villegas  | A00422503  | https://github.com/JuanVille15 |
 
 
-## Project Intro/Objective
-The purpose of this project is ________. (Describe the main goals of the project and potential civic impact. Limit to a short paragraph, 3-6 Sentences)
+**Docente: Angela Villota Gomez (https://github.com/angievig)**
 
-### Partner
-This section should be added when there's a partner institution 
-* [Name of Partner organization/Government department etc..]
-* Website for partner
-* Partner contact: [Name of Contact], [slack handle of contact if any]
-* If you do not have a partner leave this section out
 
-### Methods Used
-* Inferential Statistics
-* Machine Learning
-* Data Visualization
-* Predictive Modeling
-* etc.
+## Introducción
+El objetivo del proyecto es construir un proceso ETL utilizando Azure Data Factory (ADF) para extraer, transformar y cargar datos a partir de una base de datos en formato CSV, un archivo relacional alojado en PostgreSQL y un archivo almacenado en Mongo. El resultado de este trabajo es un archivo CSV con los registros transformados y unificados.
 
-### Technologies
-* R 
+
+### Métodos usados
+* Procesos ETL
+* Análisis Exploratorio
+* Transformaciones en ADF
+* Consultas SQL
+  
+
+### Tecnologías 
+* Azure Data Factory
 * Python
-* D3
-* PostGres, MySql
-* Pandas, jupyter
-* HTML
-* JavaScript
-* etc. 
+* PostgreSQL
+* MongoDB
+* GitHub Classroom
 
-## Project Description
-(Provide a more detailed overview of the project.  Talk a bit about your data sources and what questions and hypotheses you are exploring. What specific data analysis/visualization and modeling work are you using to solve the problem? What blockers and challenges are you facing?  Feel free to number or bullet point things here)
 
-## Getting Started
-Instructions for contributors
-1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
-2. Raw Data is being kept [here](Repo folder containing raw data) within this repo.
+## Descripción del proyecto
+En este proyecto se contruye un pipeline ETL en Azure Data Factory el cual tiene como objetivo integrar datos de:
 
-    *If using offline data mention that and how contributors may obtain the data )*
-    
-3. Data processing/transformation scripts are being kept [here](Repo folder containing data processing scripts/notebooks)
-4. etc...
+* BD Ames (SQL): tablas relacionales con información detallada de propiedades.
+* Archivos CSV: fuentes estructuradas con información general de las propiedades.
+* MongoDB: datos no relacionales correpondientes a características adicionales de las propiedades.
 
-*If your project is well underway and setup is fairly complicated (ie. requires installation of many packages) create another "setup.md" file and link to it here*  
+Las fuentes cuentan con una columna de identificación (PID), la cual permite realizar la integración entre las bases de datos de manera consistente. El proceso desarrollado incluye:
 
-5. Follow setup [instructions](Link to file)
+* Extracción desde las tres fuentes.
+* Validación, limpieza y estandarización de los registros..
+* Transformación en Data Flows y consultas SQL según los requisitos del archivo esperado.
+* Unificación de la información.
+* Generación del archivo final salida.csv.
 
-## Featured Notebooks/Analysis/Deliverables
-* [Notebook/Markdown/Slide Deck Title](link)
-* [Notebook/Markdown/Slide DeckTitle](link)
-* [Blog Post](link)
 
 
